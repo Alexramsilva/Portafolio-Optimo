@@ -42,7 +42,7 @@ if st.button("Optimizar portafolio"):
 
     st.write("Descargando datos...")
 
-    prices = yf.download(tickers, start="2019-01-01")["Adj Close"]
+    prices = yf.download(tickers, start="2025-01-01")["Close"]
 
     returns = prices.pct_change().dropna()
 
