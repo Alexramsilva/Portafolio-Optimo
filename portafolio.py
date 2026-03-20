@@ -13,12 +13,12 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import minimize
 
-st.title("Optimizador de Portafolio - Markowitz")
+st.title("Optimizador de Portafolio - Markowitz | UNRC")
 
 st.write("Selecciona entre 2 y 10 activos y calcula el portafolio óptimo.")
 
 # número de activos
-n_assets = st.slider("Número de acciones", 2, 10, 3)
+n_assets = st.slider("Número de acciones", 2, 10, 4)
 
 tickers = []
 
@@ -31,7 +31,7 @@ target_return = st.slider(
     "Retorno objetivo anual",
     0.01,
     0.50,
-    0.15
+    0.10
 )
 
 if st.button("Optimizar portafolio"):
@@ -42,7 +42,7 @@ if st.button("Optimizar portafolio"):
 
     st.write("Descargando datos...")
 
-    prices = yf.download(tickers, start="2022-01-01")["Close"]
+    prices = yf.download(tickers, start="2024-01-01")["Close"]
 
     returns = prices.pct_change().dropna()
 
